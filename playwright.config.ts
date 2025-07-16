@@ -14,6 +14,11 @@ export default defineConfig({
     timeout: 120 * 1000,
   },
 
+  reporter: [
+    ["list"],
+    ["html", { outputFolder: "playwright-report", open: "never" }],
+  ],
+
   projects: [
     {
       name: "api",
