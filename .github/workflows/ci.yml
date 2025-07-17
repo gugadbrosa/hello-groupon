@@ -54,7 +54,7 @@ jobs:
           npm run test:api
 
   e2e:
-    name: E2E & visual tests (Chrome)
+    name: E2E (Desktop + Mobile)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -62,20 +62,43 @@ jobs:
         with:
           node-version: 20
           cache: npm
-
       - run: npm ci --prefer-offline --no-audit
       - run: npx playwright install --with-deps
 
-      - name: Playwright e2e/visual (Chrome)
-        run: |
-          npm run test:e2e
-          npm run test:visual
+      - name: Playwright E2E tests
+        run: npm run test:e2e
 
-      - name: Upload Playwright report & traces
+      - name: Upload E2E report & traces
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-artifacts-${{ github.run_id }}
+          name: e2e-playwright-${{ github.run_id }}
           path: |
             playwright-report/
-            test-results/
+            test-results/e2e-desktop/
+            test-results/e2e-mobile/
+          retention-days: 14
+
+  visual:
+    name: Visual regression
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci --prefer-offline --no-audit
+      - run: npx playwright install --with-deps
+
+      - name: Playwright visual tests
+        run: npm run test:visual
+
+      - name: Upload visual diff images
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-diffs-${{ github.run_id }}
+          path: |
+            test-results/visual/**/*.png
           retention-days: 14
