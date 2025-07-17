@@ -10,9 +10,12 @@
     "test:unit": "jest",
     "test:watch": "jest --watch",
     "test:api": "playwright test --project api",
-    "test:e2e": "playwright test --project e2e",
+    "test:e2e": "playwright test --project e2e-desktop --project e2e-mobile",
+    "test:e2e:desktop": "playwright test --project e2e-desktop",
+    "test:e2e:mobile": "playwright test --project e2e-mobile",
     "test:visual": "playwright test --project visual",
-    "test:visual:update": "playwright test --project visual --update-snapshots"
+    "test:visual:update": "playwright test --project visual --update-snapshots",
+    "test:full": "npm run test:unit && npm run test:api && npm run test:e2e && npm run test:visual"
   },
   "dependencies": {
     "next": "15.4.1",
