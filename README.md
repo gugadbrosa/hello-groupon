@@ -41,16 +41,16 @@ Ensure the following dependencies are installed:
 run `npm run dev`
 
 ### Running Tests
-
-- Lint tests `npm run lint`
-- Unit tests `npm run test:unit`
-- API tests `npm run test:api`
-- All E2E tests `npm run test:e2e`
-- Desktop E2E tests `npm run test:e2e:desktop`
-- Mobile E2E tests `npm run test:e2e:mobile`
-- Visual tests `npm run test:visual`
-- Update baseline for visual tests `npm run test:visual:update`
-- All test pipeline `npm run test:full`
+For each option, run the following command:
+- Lint tests: `npm run lint`
+- Unit tests: `npm run test:unit`
+- API tests: `npm run test:api`
+- All E2E tests: `npm run test:e2e`
+- Desktop E2E tests: `npm run test:e2e:desktop`
+- Mobile E2E tests: `npm run test:e2e:mobile`
+- Visual tests: `npm run test:visual`
+- Update baseline for visual tests: `npm run test:visual:update`
+- All test pipeline: `npm run test:full`
 
 ### CI
 
