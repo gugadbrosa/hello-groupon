@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hello Groupon
 
-## Getting Started
+This project is a QA Technical test using Next.js + TypeScript.
+Pages, components and API were generated with the help of AI.
+The test levels we have on this project are: Unit, API, E2E and Visual.
+Unit test: Jest + React Testing Library;
+API: Playwright API testing;
+E2E: Playwright;
+Visual: Playwright visual comparisons.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ensure the following dependencies are installed:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Node.js > 18
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Installation
 
-## Learn More
+1. **Clone the repository:**
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   git clone git@github.com:gugadbrosa/hello-groupon.git
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Install dependencies:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   npm install
+   ```
 
-## Deploy on Vercel
+3. **Install Playwright with dependencies**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npx playwright install --with-deps
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Running APP
+
+run `npm run dev`
+
+### Running Tests
+
+- Lint tests `npm run lint`
+- Unit tests `npm run test:unit`
+- API tests `npm run test:api`
+- All E2E tests `npm run test:e2e`
+- Desktop E2E tests `npm run test:e2e:desktop`
+- Mobile E2E tests `npm run test:e2e:mobile`
+- Visual tests `npm run test:visual`
+- Update baseline for visual tests `npm run test:visual:update`
+- All test pipeline `npm run test:full`
+
+### CI
+
+The project uses [GitHub Actions](https://docs.github.com/en/actions) and tests are run automatically on PRs and on merge to `main` branch.
