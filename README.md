@@ -10,13 +10,13 @@ Visual: Playwright visual comparisons.
 
 ---
 
-### Prerequisites
+## Prerequisites
 
 Ensure the following dependencies are installed:
 
 - Node.js > 18
 
-### Installation
+## Installation
 
 1. **Clone the repository:**
 
@@ -36,12 +36,14 @@ Ensure the following dependencies are installed:
    npx playwright install --with-deps
    ```
 
-### Running the APP
+## Running the APP
 
 run `npm run dev`
 
-### Running Tests
+## Running Tests
+
 For each option, run the following command:
+
 - Lint tests: `npm run lint`
 - Unit tests: `npm run test:unit`
 - API tests: `npm run test:api`
@@ -52,6 +54,6 @@ For each option, run the following command:
 - Update baseline for visual tests: `npm run test:visual:update`
 - All test pipeline: `npm run test:full`
 
-### CI
+## CI
 
 The project uses [GitHub Actions](https://docs.github.com/en/actions) and tests are run automatically on PRs and on merge to `main` branch.

@@ -3,15 +3,20 @@ import { test, expect } from "@playwright/test"
 import { SAMPLE_NAMES, MAX_NAME_LEN } from "../lib/testData"
 import { makeLongName, INVALID_NAME_MSG } from "../helpers/testHelpers"
 
-test.describe.serial("hello API (list + create)", () => {
-  let startingCount = 0
+test.describe("hello API (list + create)", () => {
+  const startingCount = 0
+
+  test.beforeAll(async ({ request }) => {
+    await request.delete("/api/hello")
+  })
 
   test("GET empty list", async ({ request }) => {
     const res = await request.get("/api/hello")
     expect(res.status()).toBe(200)
+
     const body = await res.json()
     expect(Array.isArray(body.items)).toBe(true)
-    startingCount = body.count
+    expect(body.count).toBe(0)
   })
 
   test("POST valid name", async ({ request }) => {
