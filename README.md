@@ -36,7 +36,7 @@ Ensure the following dependencies are installed:
    npx playwright install --with-deps
    ```
 
-### Running APP
+### Running the APP
 
 run `npm run dev`
 
