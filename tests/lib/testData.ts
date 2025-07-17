@@ -4,4 +4,6 @@ export const SAMPLE_NAMES = {
   gustavo: "Gustavo",
   ana: "Ana",
   maria: "Maria",
+  julia: "Julia",
+  empty: "",
 }
