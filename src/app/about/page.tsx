@@ -7,6 +7,7 @@ export default function AboutPage() {
         About Hello App
       </h1>
       <p>This demo lets you submit names to an in-memory list.</p>
+
       <Link
         data-testid="home-link"
         href="/"
