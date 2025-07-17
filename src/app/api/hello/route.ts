@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic" // never cache
+export const revalidate = 0
+
 import { NextRequest, NextResponse } from "next/server"
 
 const MAX_NAME_LEN = 50
@@ -29,15 +32,12 @@ function errorResponse(code: string, message: string, status = 400) {
   return NextResponse.json({ error: message, code }, { status })
 }
 
-/** Safely pull a string `name` from unknown JSON. */
 function extractName(data: unknown): string | undefined {
   if (typeof data !== "object" || data === null) return undefined
   const maybe = (data as Record<string, unknown>).name
   return typeof maybe === "string" ? maybe : undefined
 }
 
-/* --------------------------- GET /api/hello --------------------------- */
-/** Return the full list of submitted names. */
 export async function GET() {
   return NextResponse.json({
     items: RECORDS,
@@ -45,8 +45,6 @@ export async function GET() {
   })
 }
 
-/* --------------------------- POST /api/hello -------------------------- */
-/** Create a new name record. Body: { name: string } */
 export async function POST(req: NextRequest) {
   let payload: unknown
   try {
@@ -72,4 +70,11 @@ export async function POST(req: NextRequest) {
     status: 201,
     headers: { Location: `/api/hello?id=${record.id}` },
   })
+}
+
+export async function DELETE() {
+  // Mutate in place so existing references don't break.
+  RECORDS.length = 0
+  nextId = 1
+  return NextResponse.json({ ok: true, count: 0 })
 }

@@ -27,6 +27,8 @@ export class HomePage {
   }
 
   async addName(name: string) {
+    await this.input.click({ force: true })
+    await this.input.fill("")
     await this.input.fill(name)
     await this.submitBtn.click()
   }

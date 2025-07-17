@@ -56,6 +56,7 @@ export default defineConfig({
         video: "retain-on-failure",
         screenshot: "only-on-failure",
       },
+      dependencies: ["e2e-desktop"],
     },
 
     {
