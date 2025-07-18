@@ -101,7 +101,7 @@ Nightly: full cross‑browser, deep a11y crawl, Lighthouse trend, dependency & s
 Weekly: load/stress, chaos, long‑running regression.
 CI: Use cron workflows; publish summary dashboard to PRs or Slack.
 
-### Add Self‑healing tests with Browserstack or TestRail (and finally the one I want to learn)
+### Add Self‑healing tests with Browserstack or TestRail (and finally the one I want to learn the most)
 Self‑healing automation detects when a locator breaks (DOM changed) and auto‑finds the intended element using alternate attributes, role, text, or structural similarity—reducing brittle test failures.
 Improves test stability in fast‑changing UIs and lowers maintenance cost; still surfaces drift so selectors can be fixed intentionally.
 CI: Wrap Playwright locators with a “heal‑then‑warn” helper (primary data-test-id, fallback role/text/XPath similarity); log heals as artifacts and fail the build if heal count > threshold.
