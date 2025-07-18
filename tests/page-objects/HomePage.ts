@@ -30,7 +30,12 @@ export class HomePage {
     await this.input.click({ force: true })
     await this.input.fill("")
     await this.input.fill(name)
-    await this.submitBtn.click()
+    await Promise.all([
+      this.page.waitForResponse(
+        (r) => r.url().endsWith("/api/hello") && r.request().method() === "POST"
+      ),
+      this.submitBtn.click(),
+    ])
   }
 
   async expectNameVisible(name: string) {
